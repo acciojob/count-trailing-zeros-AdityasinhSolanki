@@ -1,21 +1,19 @@
 function trailingZeros(n) {
-    let count = 0;
-    let powerOfFive = 5;
-    while (n >= powerOfFive) {
-        count += Math.floor(n / powerOfFive);
-        powerOfFive *= 5;
-    }
-    return count;
+  let count = 0;
+  let powerOfFive = 5;
+  while (n >= powerOfFive) {
+    count += Math.floor(n / powerOfFive);
+    powerOfFive *= 5;
+  }
+  return count;
 }
 
-// Get input from the user
 const input = prompt("Enter a non-negative integer:");
 const number = parseInt(input, 10);
 
-// Validate input
 if (isNaN(number) || number < 0) {
-    alert("Please enter a valid non-negative integer.");
+  alert("Please enter a valid non-negative integer.");
 } else {
-    const result = trailingZeros(number);
-    alert(`The number of trailing zeros in ${number}! is ${result}.`);
+  const result = trailingZeros(number);
+  alert(`The number of trailing zeros in ${number}! is ${result}.`);
 }
