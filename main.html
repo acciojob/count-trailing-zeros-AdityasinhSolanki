@@ -1,16 +1,30 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <title>Trailing Zeros Calculator</title>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+  <script>
+    function trailingZeros(n) {
+      let count = 0;
+      let powerOfFive = 5;
+      while (n >= powerOfFive) {
+        count += Math.floor(n / powerOfFive);
+        powerOfFive *= 5;
+      }
+      return count;
+    }
 
+    const input = prompt("Enter a non-negative integer:");
+    const number = parseInt(input, 10);
+
+    if (isNaN(number) || number < 0) {
+      alert("Please enter a valid non-negative integer.");
+    } else {
+      const result = trailingZeros(number);
+      alert(`The number of trailing zeros in ${number}! is ${result}.`);
+    }
+  </script>
 </body>
-
 </html>
