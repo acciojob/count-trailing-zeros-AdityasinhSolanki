@@ -8,12 +8,20 @@ function trailingZeros(n) {
   return count;
 }
 
-const input = prompt("Enter a non-negative integer:");
-const number = parseInt(input, 10);
+document.getElementById('calculateBtn').addEventListener('click', () => {
+  const input = document.getElementById('numberInput').value;
+  const resultDiv = document.getElementById('result');
+  const errorDiv = document.getElementById('error');
+  const number = parseInt(input, 10);
 
-if (isNaN(number) || number < 0) {
-  alert("Please enter a valid non-negative integer.");
-} else {
-  const result = trailingZeros(number);
-  alert(`The number of trailing zeros in ${number}! is ${result}.`);
-}
+  resultDiv.textContent = '';
+  errorDiv.textContent = '';
+
+  if (isNaN(number) || number < 0 || number > 10000) {
+    errorDiv.textContent = 'Please enter a valid non-negative integer (0 to 10,000).';
+    return;
+  }
+
+  const zeros = trailingZeros(number);
+  resultDiv.textContent = `The number of trailing zeros in ${number}! is ${zeros}.`;
+});
